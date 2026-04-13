@@ -10,7 +10,7 @@ const MovieCard = ({ movie, variant = "default" }) => {
   return (
     <Link
       to={`/movies/${movie.id}`}
-      className={`group relative block overflow-hidden rounded-2xl ${variant === "default" ? "w-60" : ""}`}
+      className={`group relative block overflow-hidden rounded-2xl ${variant === "default" ? "" : ""}`}
     >
       <div className="relative overflow-hidden rounded-2xl shadow-md">
         <img

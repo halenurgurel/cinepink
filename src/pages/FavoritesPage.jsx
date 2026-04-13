@@ -13,7 +13,7 @@ const FavoritesPage = () => {
           You haven't added any movie to your favorites yet.
         </p>
       ) : (
-        <div className="flex flex-wrap justify-center gap-8">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           {favorites.map((movie) => (
             <MovieCard key={movie.id} movie={movie} />
           ))}
