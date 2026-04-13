@@ -18,7 +18,7 @@ const MoviesPage = () => {
   if (error) return <ErrorMessage />;
 
   return (
-    <div className="relative w-full px-8 py-2">
+    <div className="relative w-full p-8">
       {/*Now Playing, Upcoming section*/}
       <div className="mb-6 flex gap-4">
         {tabs.map((tab, i) => (

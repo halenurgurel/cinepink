@@ -6,11 +6,11 @@ import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
 
-const MovieCard = ({ movie, variant = "default" }) => {
+const MovieCard = ({ movie }) => {
   return (
     <Link
       to={`/movies/${movie.id}`}
-      className={`group relative block overflow-hidden rounded-2xl ${variant === "default" ? "" : ""}`}
+      className="group relative block overflow-hidden rounded-2xl"
     >
       <div className="relative overflow-hidden rounded-2xl shadow-md">
         <img
@@ -45,7 +45,7 @@ const MovieCard = ({ movie, variant = "default" }) => {
           className="absolute top-2 right-2 rounded-full"
         />
       </div>
-      <div className="mx-2 mt-2 w-60 px-1">
+      <div className="mx-2 mt-2 px-1">
         <p className="text-sm font-semibold text-gray-500">{movie.title}</p>
         <p className="text-logo text-xs">
           {new Date(movie.release_date).toLocaleDateString("en-US", {

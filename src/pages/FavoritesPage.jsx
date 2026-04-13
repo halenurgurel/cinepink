@@ -5,7 +5,7 @@ const FavoritesPage = () => {
   const { favorites } = useFavorites();
 
   return (
-    <div className="px-5 py-10">
+    <div className="relative w-full p-8">
       <h1 className="text-logo mb-8 text-3xl font-black">My Favorites</h1>
 
       {favorites.length === 0 ? (

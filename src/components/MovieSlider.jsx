@@ -33,7 +33,7 @@ const MovieSlider = ({ title, fetchFn }) => {
       >
         {movies.map((movie) => (
           <SwiperSlide key={movie.id}>
-            <MovieCard movie={movie} variant="slider" />
+            <MovieCard movie={movie} />
           </SwiperSlide>
         ))}
       </Swiper>
