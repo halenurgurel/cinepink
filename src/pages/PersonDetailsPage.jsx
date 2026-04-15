@@ -92,9 +92,9 @@ const PersonDetailsPage = () => {
           <h2 className="mb-4 text-xs font-bold tracking-widest text-gray-400 uppercase">
             Known For
           </h2>
-          <div className="flex flex-wrap gap-6">
-            {castMovies.map((m) => (
-              <MovieCard key={m.id} movie={m} />
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {castMovies.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} />
             ))}
           </div>
         </div>

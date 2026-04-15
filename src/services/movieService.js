@@ -7,28 +7,53 @@ export const getTrendingMoviesToday = async () => {
 };
 
 //get now playing
-export const getNowPlaying = async () => {
-  const response = await tmdbApi.get(`/movie/now_playing`);
-  return response.data.results.sort(
-    (a, b) => new Date(b.release_date) - new Date(a.release_date),
-  );
+export const getNowPlaying = async (page = 1) => {
+  const response = await tmdbApi.get(`/movie/now_playing`, {
+    params: { page },
+  });
+  return {
+    results: response.data.results,
+    totalPages: response.data.total_pages,
+  };
 };
 
 //get upcoming
-export const getUpcomingMovies = async () => {
-  const response = await tmdbApi.get(`/movie/upcoming`, {
-    params: { region: "US" },
-  });
+export const getUpcomingMovies = async (page = 1) => {
   const today = new Date().toISOString().split("T")[0];
-  return response.data.results
-    .filter((movie) => movie.release_date > today)
-    .sort((a, b) => new Date(a.release_date) - new Date(b.release_date));
+  const threeMonths = new Date(Date.now() + 90 * 24 * 60 * 60 * 1000)
+    .toISOString()
+    .split("T")[0];
+
+  const response = await tmdbApi.get(`/discover/movie`, {
+    params: {
+      sort_by: "popularity.desc",
+      "primary_release_date.gte": today,
+      "primary_release_date.lte": threeMonths,
+      page,
+    },
+  });
+  return {
+    results: response.data.results,
+    totalPages: response.data.total_pages,
+  };
 };
 
-//get popular
-export const getPopular = async () => {
-  const response = await tmdbApi.get(`/movie/popular`);
-  return response.data.results;
+//get popular movies
+export const getPopularMovies = async (page = 1) => {
+  const response = await tmdbApi.get(`/movie/popular`, { params: { page } });
+  return {
+    results: response.data.results,
+    totalPages: response.data.total_pages,
+  };
+};
+
+//get top rated movies
+export const getTopRatedMovies = async (page = 1) => {
+  const response = await tmdbApi.get(`/movie/top_rated`, { params: { page } });
+  return {
+    results: response.data.results,
+    totalPages: response.data.total_pages,
+  };
 };
 
 //get random trending movie
