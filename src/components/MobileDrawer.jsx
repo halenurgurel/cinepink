@@ -5,6 +5,7 @@ import NavLinks from "./NavLinks";
 import UserAvatar from "./UserAvatar";
 import Person2RoundedIcon from "@mui/icons-material/Person2Rounded";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
+import RateReviewRoundedIcon from "@mui/icons-material/RateReviewRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 
 const MobileDrawer = ({ isOpen, onClose, user, onLogout }) => {
@@ -67,6 +68,16 @@ const MobileDrawer = ({ isOpen, onClose, user, onLogout }) => {
                 <div className="flex items-center gap-4">
                   <FavoriteRoundedIcon className="text-logo hover:text-darkPink" />
                   My Favorites
+                </div>
+              </Link>
+              <Link
+                to="/reviews"
+                onClick={onClose}
+                className="hover:text-logo pl-4 text-sm text-gray-500"
+              >
+                <div className="flex items-center gap-4">
+                  <RateReviewRoundedIcon className="text-logo hover:text-darkPink" />
+                  My Reviews
                 </div>
               </Link>
               <button

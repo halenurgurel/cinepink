@@ -63,6 +63,11 @@ export const getRandomTrendingMovie = async () => {
 };
 
 //get movie details
+export const getMovieTitle = async (movieId) => {
+  const response = await tmdbApi.get(`/movie/${movieId}`);
+  return response.data.title;
+};
+
 export const getMovieDetails = async (movieId) => {
   const response = await tmdbApi.get(`/movie/${movieId}`, {
     params: {
@@ -91,9 +96,9 @@ export const getPersonDetails = async (personId) => {
 };
 
 //search movies
-export const searchMovies = async (query) => {
+export const searchMovies = async (query, page = 1) => {
   const response = await tmdbApi.get(`/search/movie`, {
-    params: { query },
+    params: { query, page },
   });
-  return response.data.results;
+  return { results: response.data.results, totalPages: response.data.total_pages };
 };

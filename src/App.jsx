@@ -12,6 +12,7 @@ import ProfilePage from "./pages/ProfilePage";
 import PrivateRoute from "./components/PrivateRoute";
 import VerifyEmailPage from "./pages/VerifyEmailPage";
 import FavoritesPage from "./pages/FavoritesPage";
+import MyReviewsPage from "./pages/MyReviewsPage";
 
 const App = () => {
   return (
@@ -39,6 +40,14 @@ const App = () => {
             element={
               <PrivateRoute>
                 <FavoritesPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/reviews"
+            element={
+              <PrivateRoute>
+                <MyReviewsPage />
               </PrivateRoute>
             }
           />

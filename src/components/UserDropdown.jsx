@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import clsx from "clsx";
 import Person2RoundedIcon from "@mui/icons-material/Person2Rounded";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
+import RateReviewRoundedIcon from "@mui/icons-material/RateReviewRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 
 const UserDropdown = ({ user, isOpen, onClose, onLogout }) => {
@@ -52,6 +53,18 @@ const UserDropdown = ({ user, isOpen, onClose, onLogout }) => {
           <div className="flex items-center gap-3">
             <FavoriteRoundedIcon className="text-logo hover:text-darkPink" />
             My Favorites
+          </div>
+        </Link>
+
+        {/*My Reviews*/}
+        <Link
+          to="/reviews"
+          onClick={onClose}
+          className="hover:text-logo text-sm text-gray-500"
+        >
+          <div className="flex items-center gap-3">
+            <RateReviewRoundedIcon className="text-logo hover:text-darkPink" />
+            My Reviews
           </div>
         </Link>
 
