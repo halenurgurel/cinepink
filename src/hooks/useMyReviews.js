@@ -7,13 +7,10 @@ import { useState, useEffect } from "react";
 const useMyReviews = () => {
   const { user } = useAuth();
   const [reviews, setReviews] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!!user);
 
   useEffect(() => {
-    if (!user) {
-      setLoading(false);
-      return;
-    }
+    if (!user) return;
     const q = query(
       collectionGroup(db, "userReviews"),
       where("userId", "==", user.uid),
